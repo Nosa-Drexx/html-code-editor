@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { gsap } from "gsap";
 
 function AnimatedDropdown() {
-  const liveAction = useSelector((state) => state.liveAction);
+  const liveAction = useSelector((state) => state.codes.liveAction);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { duration: 0.5 } });

@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { codeUpdated, JAVASCRIPT_UPDATED } from "../actions";
 import CodeEditor from "@uiw/react-textarea-code-editor";
+import { javascriptUpdated } from "../store/actions";
 
 function JavaScriptCodes() {
-  const stateJavaScript = useSelector((state) => state.javascript);
+  const stateJavaScript = useSelector((state) => state.codes.javascript);
   const [state, setState] = useState(stateJavaScript);
   const dispatch = useDispatch();
 
   const textValue = (e) => {
     setState(e.target.value);
 
-    dispatch(codeUpdated(JAVASCRIPT_UPDATED, e.target.value));
+    dispatch(javascriptUpdated(state));
   };
 
   return (

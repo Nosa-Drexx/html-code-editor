@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeLiveAction, changeSubmitCode } from "../actions";
 import HorizontallySplit from "./Horizontal";
 import HorizontallyReverseSplit from "./HorizontalReverse";
 import VerticallySplit from "./Vertical";
@@ -12,16 +11,18 @@ import {
   VERTICAL_REVERSE,
 } from "./miniStore/miniActions";
 
+import { liveActionUpdated, submitCodeUpdated } from "../store/actions";
+
 function LiveAction({ changeElementAlign }) {
-  const liveAction = useSelector((state) => state.liveAction);
+  const liveAction = useSelector((state) => state.codes.liveAction);
   const dispatch = useDispatch();
 
   function changeActions() {
-    dispatch(changeLiveAction(!liveAction));
+    dispatch(liveActionUpdated(!liveAction));
   }
 
   function formatCodes() {
-    dispatch(changeSubmitCode(true));
+    dispatch(submitCodeUpdated(true));
   }
 
   function changeAlignsToVertical() {

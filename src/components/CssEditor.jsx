@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { codeUpdated, CSS_UPDATED } from "../actions";
 import CodeEditor from "@uiw/react-textarea-code-editor";
+import { cssUpdated } from "../store/actions";
 
 function CssCodes() {
-  const stateCss = useSelector((state) => state.css);
+  const stateCss = useSelector((state) => state.codes.css);
   const [state, setState] = useState(stateCss);
   const dispatch = useDispatch();
 
   const textValue = (e) => {
     setState(e.target.value);
 
-    dispatch(codeUpdated(CSS_UPDATED, e.target.value));
+    dispatch(cssUpdated(e.target.value));
   };
 
   return (

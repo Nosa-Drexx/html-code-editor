@@ -1,15 +1,15 @@
 import { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSubmitCode } from "../actions";
+import { submitCodeUpdated } from "../store/actions";
 
 function DisplayCodes() {
   const { html, css, javascript, liveAction, submitCode } = useSelector(
     (state) => ({
-      html: state.html,
-      css: state.css,
-      javascript: state.javascript,
-      liveAction: state.liveAction,
-      submitCode: state.submitCode,
+      html: state.codes.html,
+      css: state.codes.css,
+      javascript: state.codes.javascript,
+      liveAction: state.codes.liveAction,
+      submitCode: state.codes.submitCode,
     })
   );
   const [codeToDisplay, setCodeToDisplay] = useState({
@@ -25,7 +25,7 @@ function DisplayCodes() {
     }
     if (submitCode || liveAction) {
       setCodeToDisplay({ html: html, css: css, javascript: javascript });
-      if (submitCode) dispatch(changeSubmitCode(false));
+      if (submitCode) dispatch(submitCodeUpdated(false));
     }
   }, [liveAction, html, submitCode, css, javascript, dispatch]);
 

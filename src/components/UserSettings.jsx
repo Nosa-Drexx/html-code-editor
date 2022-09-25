@@ -47,7 +47,7 @@ function LiveAction({ changeElementAlign }) {
 
   return (
     <>
-      <div className="UserSettingsContainer" style={{ height: "5vh" }}>
+      <div className="UserSettingsContainer" style={{ height: "10vh" }}>
         <div className="logo-holder"></div>
         <div className="align-btns">
           <button

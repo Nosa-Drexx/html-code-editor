@@ -8,10 +8,10 @@ function HorizontallySplit() {
   return (
     <>
       <Split
-        sizes={[30, 70]}
+        sizes={[35, 65]}
         direction={"horizontal"}
         style={{
-          height: "95vh",
+          height: "90vh",
           display: "flex",
           flexFlow: "row nowrap",
         }}

@@ -8,10 +8,10 @@ function VerticallyReverseSplit() {
   return (
     <>
       <Split
-        sizes={[70, 30]}
+        sizes={[60, 40]}
         direction={"vertical"}
         style={{
-          height: "95vh",
+          height: "90vh",
           display: "flex",
           flexFlow: "column nowrap",
         }}

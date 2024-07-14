@@ -3,6 +3,7 @@ import VerticallySplit from "./Vertical";
 import LiveAction from "./UserSettings";
 import { userLayoutPreference } from "./miniStore/minireducer";
 import AnimatedDropdown from "./AnimatedDropdown";
+import ConsoleLog from "./ConsoleLog";
 
 function App() {
   const [perference, dispatchPerfercence] = useReducer(
@@ -15,6 +16,7 @@ function App() {
       <AnimatedDropdown />
       <LiveAction changeElementAlign={dispatchPerfercence} />
       {perference}
+      <ConsoleLog />
     </>
   );
 }

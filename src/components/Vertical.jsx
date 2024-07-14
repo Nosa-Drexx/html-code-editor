@@ -11,7 +11,6 @@ function VerticallySplit() {
         sizes={[40, 60]}
         direction={"vertical"}
         style={{
-          height: "90vh",
           display: "flex",
           flexFlow: "column nowrap",
         }}

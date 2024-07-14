@@ -11,7 +11,6 @@ function VerticallyReverseSplit() {
         sizes={[60, 40]}
         direction={"vertical"}
         style={{
-          height: "90vh",
           display: "flex",
           flexFlow: "column nowrap",
         }}

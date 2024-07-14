@@ -11,14 +11,13 @@ function HorizontallySplit() {
         sizes={[35, 65]}
         direction={"horizontal"}
         style={{
-          height: "90vh",
           display: "flex",
           flexFlow: "row nowrap",
         }}
         className="userLayout"
       >
         <Split
-          minSize={8}
+          minSize={30}
           direction={"vertical"}
           className="editor-area"
           style={{

@@ -11,7 +11,6 @@ function HorizontallyReverseSplit() {
         sizes={[65, 35]}
         direction={"horizontal"}
         style={{
-          height: "90vh",
           display: "flex",
           flexFlow: "row nowrap",
         }}
@@ -22,7 +21,7 @@ function HorizontallyReverseSplit() {
         </div>
 
         <Split
-          minSize={8}
+          minSize={30}
           direction={"vertical"}
           className="editor-area"
           style={{

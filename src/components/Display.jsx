@@ -1,6 +1,8 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { submitCodeUpdated } from "../store/actions";
+
+let htmlDoc;
 
 function DisplayCodes() {
   const { html, css, javascript, liveAction, submitCode } = useSelector(
@@ -18,6 +20,21 @@ function DisplayCodes() {
     javascript: javascript,
   });
   const dispatch = useDispatch();
+  const iframeRef = useRef(null);
+
+  useEffect(() => {
+    if (iframeRef.current) {
+      const id = "codebox_root_main";
+      const elemeExist = document.getElementById(id);
+      if (elemeExist) document.body.removeChild(elemeExist);
+      htmlDoc = document.createElement("div");
+      document.body.appendChild(htmlDoc);
+      htmlDoc.style.display = "none";
+      htmlDoc.style.visibility = "hidden";
+      htmlDoc.id = id;
+      htmlDoc.innerHTML = html;
+    }
+  }, []);
 
   useEffect(() => {
     if (!liveAction) {
@@ -25,6 +42,7 @@ function DisplayCodes() {
     }
     if (submitCode || liveAction) {
       setCodeToDisplay({ html: html, css: css, javascript: javascript });
+      htmlDoc.innerHTML = html;
       if (submitCode) dispatch(submitCodeUpdated(false));
     }
   }, [liveAction, html, submitCode, css, javascript, dispatch]);
@@ -36,6 +54,7 @@ function DisplayCodes() {
   return (
     <>
       <iframe
+        ref={iframeRef}
         src={AllCodes}
         title="A display screen for result of codes"
         className="Display-editor"
